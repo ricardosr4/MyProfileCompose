@@ -11,12 +11,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.sp
+import com.example.myprofilecompose.ui.theme.gradientBrush
 
 @Composable
 fun HomeScreen(){
     Box(modifier = Modifier
         .fillMaxSize()
-        .background(color = Color.Blue)
+        .background(brush = gradientBrush)
     ){
         Column(modifier = Modifier
             .fillMaxSize()
@@ -27,8 +28,7 @@ fun HomeScreen(){
         {
             Text(text = "Home",
                 fontSize = 26.sp,
-                color = Color.White)
-
+                color = Color.Black)
         }
     }
 }
