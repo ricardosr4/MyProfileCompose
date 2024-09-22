@@ -35,11 +35,8 @@ fun AboutMeScreen() {
                     .fillMaxSize(),
                 painter = painterResource(id = R.drawable.img_cv_example),
                 contentDescription = "imagen cv",
-
-
+                
                 )
-
         }
     }
-
 }
