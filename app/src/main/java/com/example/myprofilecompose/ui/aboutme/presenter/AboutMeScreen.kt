@@ -16,21 +16,23 @@ import com.example.myprofilecompose.ui.theme.gradientBrush
 
 @Preview(showBackground = true)
 @Composable
-fun AboutMeScreen(){
-    Box(modifier = Modifier
-        .fillMaxSize()
-        .background(brush = gradientBrush)
-    ){
-        Column(modifier = Modifier
+fun AboutMeScreen() {
+    Box(
+        modifier = Modifier
             .fillMaxSize()
-            .align(Alignment.Center),
+            .background(brush = gradientBrush)
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .align(Alignment.Center),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         )
         {
             Image(
                 modifier = Modifier
-                .fillMaxSize(),
+                    .fillMaxSize(),
                 painter = painterResource(id = R.drawable.img_cv_example),
                 contentDescription = "imagen cv",
 
