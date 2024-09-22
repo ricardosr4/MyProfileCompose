@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge // Conservar esta importación
 import androidx.compose.material.Scaffold
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Build
@@ -45,7 +46,6 @@ class MainActivity : ComponentActivity() {
                     topBar = {
                         TopAppBar(title = title.value) {
                             scope.launch { scaffoldState.drawerState.open() }
-
                         }
                     },
                     drawerGesturesEnabled = scaffoldState.drawerState.isOpen,
@@ -104,7 +104,6 @@ class MainActivity : ComponentActivity() {
                                     }
                                 }
                             }
-
                         )
                     }
                 ) {
