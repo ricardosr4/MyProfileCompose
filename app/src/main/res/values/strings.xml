@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">My Profile Compose</string>
+
+
+
+    <!-- long text -->
+    <string name="profile_description">¡Bienvenido a mi perfil! 👋
+Soy un desarrollador apasionado con experiencia en el desarrollo de aplicaciones móviles utilizando Kotlin. Aquí podrás explorar mis proyectos, habilidades y logros. Mi objetivo es seguir creciendo en esta industria y compartir conocimientos con la comunidad. ¡Gracias por visitar mi espacio!</string>
 </resources>
