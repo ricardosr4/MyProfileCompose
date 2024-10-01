@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -28,6 +29,9 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.myprofilecompose.R
@@ -76,6 +80,7 @@ fun HomeScreen() {
                     modifier = Modifier
                         .size(200.dp)
                         .clip(CircleShape)
+                        .border(width = 3.dp, color = Color.Black, shape = CircleShape)
                 )
 
                 Spacer(modifier = Modifier.width(20.dp))
@@ -105,7 +110,9 @@ fun HomeScreen() {
                     .padding(horizontal = 20.dp)
                     .padding(top = 30.dp)
                     .align(Alignment.CenterHorizontally),
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
+                fontFamily = FontFamily(Font(R.font.roboto_light)),
+                fontStyle = FontStyle.Italic
             )
         }
     }
