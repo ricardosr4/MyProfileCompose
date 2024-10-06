@@ -10,6 +10,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Build
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.mutableStateOf
@@ -21,6 +22,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.myprofilecompose.data.MenuItem
 import com.example.myprofilecompose.navigation.AppScreen
 import com.example.myprofilecompose.ui.aboutme.presenter.AboutMeScreen
+import com.example.myprofilecompose.ui.gallery.GalleryScreen
 import com.example.myprofilecompose.ui.home.presenter.HomeScreen
 import com.example.myprofilecompose.ui.navigationdrawer.presenter.DrawerBody
 import com.example.myprofilecompose.ui.navigationdrawer.presenter.DrawerHeader
@@ -72,6 +74,12 @@ class MainActivity : ComponentActivity() {
                                     icon = Icons.Default.Star
                                 ),
                                 MenuItem(
+                                    id = "Gallery",
+                                    title = "Galeria",
+                                    contentDescription = "Go to Projects",
+                                    icon = Icons.Default.PlayArrow
+                                ),
+                                MenuItem(
                                     id = "Technologies",
                                     title = "Tecnologías",
                                     contentDescription = "Go to Technologies",
@@ -96,6 +104,10 @@ class MainActivity : ComponentActivity() {
                                             title.value = "Proyectos"
                                             navigationController.navigate(AppScreen.ProjectScreen.route)
                                         }
+                                        "Gallery" -> {
+                                            title.value = "Galeria"
+                                            navigationController.navigate(AppScreen.GalleryScreen.route)
+                                        }
 
                                         "Technologies" -> {
                                             title.value = "Tecnologias"
@@ -114,6 +126,7 @@ class MainActivity : ComponentActivity() {
                         composable(AppScreen.HomeScreen.route) { HomeScreen() }
                         composable(AppScreen.AboutMeScreen.route) { AboutMeScreen() }
                         composable(AppScreen.ProjectScreen.route) { ProjectsScreen() }
+                        composable(AppScreen.GalleryScreen.route) { GalleryScreen() }
                         composable(AppScreen.TechnologiesScreen.route) { TechnologiesScreen() }
                     }
                 }

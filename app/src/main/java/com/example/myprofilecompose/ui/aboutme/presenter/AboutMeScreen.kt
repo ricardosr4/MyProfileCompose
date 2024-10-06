@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -16,7 +17,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.res.painterResource
@@ -26,7 +26,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myprofilecompose.R
 import com.example.myprofilecompose.ui.theme.gradientBrush
-import com.example.myprofilecompose.ui.theme.gradientButtonBlue
 import com.example.myprofilecompose.ui.theme.gradientButtonMetallic
 
 @Preview(showBackground = true)
@@ -34,8 +33,8 @@ import com.example.myprofilecompose.ui.theme.gradientButtonMetallic
 fun AboutMeScreen() {
     Box(
         modifier = Modifier
-            .fillMaxSize()
-            .background(brush = gradientBrush)
+            .fillMaxWidth()
+            .background(Color.White)
     ) {
         Column(
             modifier = Modifier
@@ -48,7 +47,8 @@ fun AboutMeScreen() {
             Image(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(20.dp),
+                .padding(10.dp),
+                alignment = Alignment.TopCenter,
                 painter = painterResource(id = R.drawable.img_cv_example),
                 contentDescription = "imagen cv",
                 
@@ -73,7 +73,7 @@ fun AboutMeScreen() {
                 )
                 .align(Alignment.BottomCenter)
                 .background(
-                    brush = gradientButtonBlue,
+                    brush = gradientBrush,
                     shape = RoundedCornerShape(20.dp)
                 )
         ) {
@@ -81,8 +81,9 @@ fun AboutMeScreen() {
                 text = "Descargar Cv",
                 style = TextStyle(
                     fontSize = 20.sp,
+                    color = Color.White,
                     shadow = Shadow(
-                        color = Color.Gray, // Sombra del texto
+                        color = Color.Black, // Sombra del texto
                         blurRadius = 3f
                     )
                 ),

@@ -20,7 +20,7 @@ fun DrawerHeader() {
         modifier = Modifier
             .fillMaxWidth()
             .background(brush = gradientBrush)
-            .padding(vertical = 24.dp),
+            .padding(vertical = 14.dp),
         contentAlignment = Alignment.Center
     ) {
         Text(
@@ -39,7 +39,7 @@ fun DrawerBody(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(brush = gradientBrush)
+            .background(Color.White)
             .padding(8.dp)
     ) {
         items.forEach { item ->

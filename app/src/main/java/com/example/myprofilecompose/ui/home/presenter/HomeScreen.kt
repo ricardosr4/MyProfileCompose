@@ -44,7 +44,7 @@ fun HomeScreen() {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(brush = gradientBrush)
+            .background(Color.White)
     ) {
         Column(
             modifier = Modifier

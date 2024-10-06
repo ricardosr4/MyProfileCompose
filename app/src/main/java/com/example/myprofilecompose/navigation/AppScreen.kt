@@ -6,4 +6,5 @@ sealed class AppScreen(val route: String) {
     data object HomeScreen : AppScreen("HomeScreen")
     data object ProjectScreen : AppScreen("ProjectScreen")
     data object TechnologiesScreen : AppScreen("TechnologiesScreen")
+    data object GalleryScreen : AppScreen("GalleryScreen")
 }
