@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.myprofilecompose.data.MenuItem
+import com.example.myprofilecompose.data.model.MenuItem
 import com.example.myprofilecompose.ui.theme.gradientBrush
 
 @Composable
@@ -20,7 +20,7 @@ fun DrawerHeader() {
         modifier = Modifier
             .fillMaxWidth()
             .background(brush = gradientBrush)
-            .padding(vertical = 24.dp),
+            .padding(vertical = 14.dp),
         contentAlignment = Alignment.Center
     ) {
         Text(
@@ -39,7 +39,7 @@ fun DrawerBody(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(brush = gradientBrush)
+            .background(Color.White)
             .padding(8.dp)
     ) {
         items.forEach { item ->

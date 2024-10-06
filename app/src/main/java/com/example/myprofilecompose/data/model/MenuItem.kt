@@ -1,4 +1,4 @@
-package com.example.myprofilecompose.data
+package com.example.myprofilecompose.data.model
 
 import androidx.compose.ui.graphics.vector.ImageVector
 

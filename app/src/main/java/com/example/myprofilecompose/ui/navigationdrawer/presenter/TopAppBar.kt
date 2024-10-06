@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import com.example.myprofilecompose.ui.theme.gradientBrush
 
+
 @Composable
 fun TopAppBar(
     title: String,
@@ -17,7 +18,7 @@ fun TopAppBar(
 ) {
     Box(
         modifier = Modifier
-            .background(brush = gradientBrush)
+            .background(gradientBrush)
     ) {
 
         TopAppBar(
