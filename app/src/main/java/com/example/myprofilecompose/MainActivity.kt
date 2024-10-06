@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge // Conservar esta importación
 import androidx.compose.material.Scaffold
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Build
@@ -19,7 +18,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.myprofilecompose.data.MenuItem
+import com.example.myprofilecompose.data.model.MenuItem
 import com.example.myprofilecompose.navigation.AppScreen
 import com.example.myprofilecompose.ui.aboutme.presenter.AboutMeScreen
 import com.example.myprofilecompose.ui.gallery.GalleryScreen

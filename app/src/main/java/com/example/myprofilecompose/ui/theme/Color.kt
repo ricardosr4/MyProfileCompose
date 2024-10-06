@@ -21,16 +21,10 @@ val gradientBrush = Brush.verticalGradient(
 )
 val gradientButtonMetallic = Brush.verticalGradient(
     colors = listOf(
-        Color(0xFFB0BEC5), // Gris claro
-        Color(0xFF90A4AE), // Gris medio
-        Color(0xFFCFD8DC), // Plateado claro
-        Color(0xFF000000), // Gris más oscuro
-        Color(0xFFECEFF1)  // Blanco/gris para reflejo
-    )
-)
-val gradientButtonBlue = Brush.verticalGradient(
-    colors = listOf(
-        Color(0xFF0870C2),
-        Color(0xFF64B5F6)
+        Color(0xFFB0BEC5),
+        Color(0xFF90A4AE),
+        Color(0xFFCFD8DC),
+        Color(0xFF000000),
+        Color(0xFFECEFF1)
     )
 )

@@ -35,7 +35,6 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.myprofilecompose.R
-import com.example.myprofilecompose.ui.theme.gradientBrush
 
 @Composable
 fun HomeScreen() {
