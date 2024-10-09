@@ -34,6 +34,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.myprofilecompose.R
 
 @Composable
@@ -110,8 +111,8 @@ fun HomeScreen() {
                     .padding(top = 30.dp)
                     .align(Alignment.CenterHorizontally),
                 textAlign = TextAlign.Center,
-                fontFamily = FontFamily(Font(R.font.roboto_light)),
-                fontStyle = FontStyle.Italic
+                fontStyle = FontStyle.Italic,
+                fontSize = 22.sp
             )
         }
     }

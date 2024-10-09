@@ -3,6 +3,7 @@ package com.example.myprofilecompose.ui.gallery
 import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -17,29 +18,47 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.myprofilecompose.R
 import com.example.myprofilecompose.data.model.GalleryModel
+import com.example.myprofilecompose.ui.theme.gradientBrush
 
+@Preview(showBackground = true)
 @Composable
 fun GalleryScreen() {
     val context = LocalContext.current
 
     Column {
+        TitleProjectXml()
         ProjectXml(context)
+        TitleProjectCompose()
         ProjectCompose(context)
     }
+}
+@Composable
+fun TitleProjectXml() {
+    Text(
+        text = "Proyectos en xml",
+        modifier = Modifier
+            .padding(top = 10.dp, start = 50.dp),
+        fontSize = 36.sp,
+        fontFamily = FontFamily.Cursive
+    )
 }
 
 @Composable
 fun ProjectXml(context: android.content.Context) {
     LazyRow(
         modifier = Modifier
-            .padding(top = 20.dp, start = 10.dp),
+            .padding(top = 10.dp, start = 10.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         items(getProjectXml()) { galleryModel ->
@@ -49,12 +68,23 @@ fun ProjectXml(context: android.content.Context) {
         }
     }
 }
+@Composable
+fun TitleProjectCompose() {
+    Text(
+        text = "Proyectos en Compose",
+        modifier = Modifier
+            .padding(top = 10.dp, start = 50.dp),
+        fontSize = 36.sp,
+        fontFamily = FontFamily.Cursive
+    )
+}
+
 
 @Composable
 fun ProjectCompose(context: android.content.Context) {
     LazyRow(
         modifier = Modifier
-            .padding(top = 20.dp, start = 10.dp),
+            .padding(top = 10.dp, start = 10.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         items(getProjectCompose()) { galleryModel ->
@@ -70,8 +100,8 @@ fun ItemProject(galleryModel: GalleryModel, onItemSelected: (GalleryModel) -> Un
     Card(
         border = BorderStroke(2.dp, Color.Gray),
         modifier = Modifier
-            .width(200.dp)
-            .height(350.dp)
+            .width(150.dp)
+            .height(300.dp)
             .clickable { onItemSelected(galleryModel) }
     ) {
         Column {
@@ -94,7 +124,7 @@ fun ItemProject(galleryModel: GalleryModel, onItemSelected: (GalleryModel) -> Un
 fun getProjectXml(): List<GalleryModel> {
     return listOf(
         GalleryModel("Search Friends XML", R.drawable.img_home_dogs),
-        GalleryModel(" XML", R.drawable.img_home_dogs),
+        GalleryModel(" XML", R.drawable.home_searchfriend_xml),
         GalleryModel(" XML", R.drawable.img_home_dogs),
         GalleryModel(" XML", R.drawable.img_home_dogs),
         GalleryModel(" XML", R.drawable.img_home_dogs),
@@ -105,8 +135,8 @@ fun getProjectXml(): List<GalleryModel> {
 
 fun getProjectCompose(): List<GalleryModel> {
     return listOf(
-        GalleryModel(" Compose", R.drawable.img_home_dogs),
-        GalleryModel(" Compose", R.drawable.img_home_dogs),
+        GalleryModel(" Compose", R.drawable.profile_compose),
+        GalleryModel(" Compose", R.drawable.recover_password_compose),
         GalleryModel("Compose", R.drawable.img_home_dogs),
         GalleryModel(" Compose", R.drawable.img_home_dogs),
         GalleryModel(" Compose", R.drawable.img_home_dogs),
