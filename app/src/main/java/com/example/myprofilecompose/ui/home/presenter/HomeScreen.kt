@@ -22,6 +22,8 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -35,11 +37,14 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.myprofilecompose.R
+import com.example.myprofilecompose.navigation.AppScreen
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(navController: NavController, onTitleChange: (String) -> Unit) {
     val context = LocalContext.current
+
 
     Box(
         modifier = Modifier
@@ -142,7 +147,10 @@ fun HomeScreen() {
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier.weight(1f)
                 ) {
-                    IconButton(onClick = { /* Navegar a la pantalla 1 */ }) {
+                    IconButton(onClick = {
+                        onTitleChange("Sobre mí")
+                        navController.navigate(AppScreen.AboutMeScreen.route)
+                    }) {
                         Icon(
                             painter = painterResource(id = R.drawable.icon_about_me),
                             contentDescription = "Ir a pantalla 1",
@@ -161,7 +169,10 @@ fun HomeScreen() {
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier.weight(1f)
                 ) {
-                    IconButton(onClick = { /* Navegar a la pantalla 2 */ }) {
+                    IconButton(onClick = {
+                        onTitleChange("Mis proyectos")
+                        navController.navigate(AppScreen.ProjectScreen.route)
+                    }) {
                         Icon(
                             painter = painterResource(id = R.drawable.icon_project),
                             contentDescription = "Ir a pantalla 2",
@@ -180,7 +191,10 @@ fun HomeScreen() {
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier.weight(1f)
                 ) {
-                    IconButton(onClick = { /* Navegar a la pantalla 3 */ }) {
+                    IconButton(onClick = {
+                        onTitleChange("Herramientas")
+                        navController.navigate(AppScreen.TechnologiesScreen.route)
+                    }) {
                         Icon(
                             painter = painterResource(id = R.drawable.icon_build),
                             contentDescription = "Ir a pantalla 3",
