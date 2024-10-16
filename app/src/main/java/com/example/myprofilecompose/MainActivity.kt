@@ -7,6 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.material.Scaffold
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Build
+import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.PlayArrow
@@ -22,12 +23,12 @@ import androidx.navigation.compose.rememberNavController
 import com.example.myprofilecompose.data.model.MenuItem
 import com.example.myprofilecompose.navigation.AppScreen
 import com.example.myprofilecompose.ui.aboutme.presenter.AboutMeScreen
-import com.example.myprofilecompose.ui.gallery.GalleryScreen
+import com.example.myprofilecompose.ui.contact.presenter.ContactScreen
 import com.example.myprofilecompose.ui.home.presenter.HomeScreen
 import com.example.myprofilecompose.ui.navigationdrawer.presenter.DrawerBody
 import com.example.myprofilecompose.ui.navigationdrawer.presenter.DrawerHeader
 import com.example.myprofilecompose.ui.navigationdrawer.presenter.TopAppBar
-import com.example.myprofilecompose.ui.projects.presenter.ProjectsScreen
+import com.example.myprofilecompose.ui.projects.presenter.ProjectScreen
 import com.example.myprofilecompose.ui.technologies.presenter.TechnologiesScreen
 import com.example.myprofilecompose.ui.theme.MyProfileComposeTheme
 import kotlinx.coroutines.launch
@@ -74,17 +75,17 @@ class MainActivity : ComponentActivity() {
                                     icon = Icons.Default.Star
                                 ),
                                 MenuItem(
-                                    id = "Gallery",
-                                    title = "Galeria",
-                                    contentDescription = "Go to Projects",
-                                    icon = Icons.Default.PlayArrow
-                                ),
-                                MenuItem(
                                     id = "Technologies",
                                     title = "Tecnologías",
                                     contentDescription = "Go to Technologies",
                                     icon = Icons.Default.Build
-                                )
+                                ),
+                                MenuItem(
+                                    id = "Contact",
+                                    title = "Contacto",
+                                    contentDescription = "Go to Contact",
+                                    icon = Icons.Default.Email
+                                ),
                             ),
                             onItemClick = {
                                 scope.launch {
@@ -96,7 +97,7 @@ class MainActivity : ComponentActivity() {
                                         }
 
                                         "About Me" -> {
-                                            title.value = "Sobre Mi"
+                                            title.value = "Sobre mi"
                                             navigationController.navigate(AppScreen.AboutMeScreen.route)
                                         }
 
@@ -105,14 +106,14 @@ class MainActivity : ComponentActivity() {
                                             navigationController.navigate(AppScreen.ProjectScreen.route)
                                         }
 
-                                        "Gallery" -> {
-                                            title.value = "Galeria"
-                                            navigationController.navigate(AppScreen.GalleryScreen.route)
-                                        }
-
                                         "Technologies" -> {
                                             title.value = "Tecnologias"
                                             navigationController.navigate(AppScreen.TechnologiesScreen.route)
+                                        }
+
+                                        "Contact" -> {
+                                            title.value = "Contacto"
+                                            navigationController.navigate(AppScreen.ContactScreen.route)
                                         }
                                     }
                                 }
@@ -138,22 +139,17 @@ class MainActivity : ComponentActivity() {
                             AboutMeScreen()
                             LaunchedEffect(Unit) {
                                 title.value =
-                                    "Acerca de mí"
+                                    "Sobre mi"
                             }
                         }
                         composable(AppScreen.ProjectScreen.route) {
-                            ProjectsScreen()
+                            ProjectScreen()
                             LaunchedEffect(Unit) {
                                 title.value =
                                     "Proyectos"
                             }
                         }
-                        composable(AppScreen.GalleryScreen.route) {
-                            GalleryScreen()
-                            LaunchedEffect(Unit) {
-                                title.value = "Galería"
-                            }
-                        }
+
                         composable(AppScreen.TechnologiesScreen.route) {
                             TechnologiesScreen()
                             LaunchedEffect(Unit) {
@@ -161,12 +157,18 @@ class MainActivity : ComponentActivity() {
                                     "Tecnologías"
                             }
                         }
-                    }
+                        composable(AppScreen.ContactScreen.route) {
+                            ContactScreen()
+                            LaunchedEffect(Unit) {
+                                title.value =
+                                    "Contacto"
+                            }
 
+                        }
+                    }
                 }
             }
         }
     }
 }
-
 
