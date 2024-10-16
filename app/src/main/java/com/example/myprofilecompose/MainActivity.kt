@@ -12,6 +12,7 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.rememberScaffoldState
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -103,6 +104,7 @@ class MainActivity : ComponentActivity() {
                                             title.value = "Proyectos"
                                             navigationController.navigate(AppScreen.ProjectScreen.route)
                                         }
+
                                         "Gallery" -> {
                                             title.value = "Galeria"
                                             navigationController.navigate(AppScreen.GalleryScreen.route)
@@ -122,15 +124,49 @@ class MainActivity : ComponentActivity() {
                         navController = navigationController,
                         startDestination = AppScreen.HomeScreen.route
                     ) {
-                        composable(AppScreen.HomeScreen.route) { HomeScreen() }
-                        composable(AppScreen.AboutMeScreen.route) { AboutMeScreen() }
-                        composable(AppScreen.ProjectScreen.route) { ProjectsScreen() }
-                        composable(AppScreen.GalleryScreen.route) { GalleryScreen() }
-                        composable(AppScreen.TechnologiesScreen.route) { TechnologiesScreen() }
+                        composable(AppScreen.HomeScreen.route) {
+                            HomeScreen(
+                                onTitleChange = { title.value = it },
+                                navController = navigationController
+                            )
+                            LaunchedEffect(Unit) {
+                                title.value =
+                                    "Home"
+                            }
+                        }
+                        composable(AppScreen.AboutMeScreen.route) {
+                            AboutMeScreen()
+                            LaunchedEffect(Unit) {
+                                title.value =
+                                    "Acerca de mí"
+                            }
+                        }
+                        composable(AppScreen.ProjectScreen.route) {
+                            ProjectsScreen()
+                            LaunchedEffect(Unit) {
+                                title.value =
+                                    "Proyectos"
+                            }
+                        }
+                        composable(AppScreen.GalleryScreen.route) {
+                            GalleryScreen()
+                            LaunchedEffect(Unit) {
+                                title.value = "Galería"
+                            }
+                        }
+                        composable(AppScreen.TechnologiesScreen.route) {
+                            TechnologiesScreen()
+                            LaunchedEffect(Unit) {
+                                title.value =
+                                    "Tecnologías"
+                            }
+                        }
                     }
+
                 }
             }
         }
     }
 }
+
 

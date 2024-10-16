@@ -17,10 +17,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -31,14 +34,17 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.myprofilecompose.R
+import com.example.myprofilecompose.navigation.AppScreen
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(navController: NavController, onTitleChange: (String) -> Unit) {
     val context = LocalContext.current
+
 
     Box(
         modifier = Modifier
@@ -51,9 +57,24 @@ fun HomeScreen() {
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Spacer(modifier = Modifier.height(32.dp))
+
+            Image(
+                painter = painterResource(id = R.drawable.img_port_home),
+                contentDescription = "imagen portada",
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clip(
+                        RoundedCornerShape(
+                            bottomStart = 10.dp,
+                            bottomEnd = 10.dp
+                        )
+                    )
+            )
 
             Row(
+                modifier = Modifier
+                    .padding(top = 10.dp),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Center
             ) {
@@ -77,7 +98,7 @@ fun HomeScreen() {
                     contentDescription = "image profile",
                     contentScale = ContentScale.Crop,
                     modifier = Modifier
-                        .size(200.dp)
+                        .size(170.dp)
                         .clip(CircleShape)
                         .border(width = 3.dp, color = Color.Black, shape = CircleShape)
                 )
@@ -111,8 +132,85 @@ fun HomeScreen() {
                     .align(Alignment.CenterHorizontally),
                 textAlign = TextAlign.Center,
                 fontFamily = FontFamily(Font(R.font.roboto_light)),
-                fontStyle = FontStyle.Italic
+                fontSize = 18.sp,
             )
+            Spacer(modifier = Modifier.height(20.dp))
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 20.dp),
+                horizontalArrangement = Arrangement.SpaceEvenly,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier.weight(1f)
+                ) {
+                    IconButton(onClick = {
+                        onTitleChange("Sobre mí")
+                        navController.navigate(AppScreen.AboutMeScreen.route)
+                    }) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.icon_about_me),
+                            contentDescription = "Ir a pantalla 1",
+                            modifier = Modifier.size(60.dp),
+                            tint = Color.Unspecified
+                        )
+                    }
+                    Text(
+                        text = "Sobre mí",
+                        fontSize = 14.sp,
+                        modifier = Modifier.padding(top = 5.dp)
+                    )
+                }
+
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier.weight(1f)
+                ) {
+                    IconButton(onClick = {
+                        onTitleChange("Mis proyectos")
+                        navController.navigate(AppScreen.ProjectScreen.route)
+                    }) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.icon_project),
+                            contentDescription = "Ir a pantalla 2",
+                            modifier = Modifier.size(60.dp),
+                            tint = Color.Unspecified
+                        )
+                    }
+                    Text(
+                        text = "Proyectos",
+                        fontSize = 14.sp,
+                        modifier = Modifier.padding(top = 5.dp)
+                    )
+                }
+
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier.weight(1f)
+                ) {
+                    IconButton(onClick = {
+                        onTitleChange("Herramientas")
+                        navController.navigate(AppScreen.TechnologiesScreen.route)
+                    }) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.icon_build),
+                            contentDescription = "Ir a pantalla 3",
+                            modifier = Modifier.size(60.dp),
+                            tint = Color.Unspecified
+                        )
+                    }
+                    Text(
+                        text = "Herramientas",
+                        fontSize = 14.sp,
+                        modifier = Modifier.padding(top = 5.dp)
+                    )
+                }
+            }
+
         }
     }
 }
+
