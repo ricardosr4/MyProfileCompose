@@ -153,7 +153,7 @@ fun HomeScreen(navController: NavController, onTitleChange: (String) -> Unit) {
                     }) {
                         Icon(
                             painter = painterResource(id = R.drawable.icon_about_me),
-                            contentDescription = "Ir a pantalla 1",
+                            contentDescription = "Go to About Me Screen",
                             modifier = Modifier.size(60.dp),
                             tint = Color.Unspecified
                         )
@@ -170,12 +170,12 @@ fun HomeScreen(navController: NavController, onTitleChange: (String) -> Unit) {
                     modifier = Modifier.weight(1f)
                 ) {
                     IconButton(onClick = {
-                        onTitleChange("Mis proyectos")
+                        onTitleChange("Proyectos")
                         navController.navigate(AppScreen.ProjectScreen.route)
                     }) {
                         Icon(
                             painter = painterResource(id = R.drawable.icon_project),
-                            contentDescription = "Ir a pantalla 2",
+                            contentDescription = "Go to Projects Screen",
                             modifier = Modifier.size(60.dp),
                             tint = Color.Unspecified
                         )
@@ -192,18 +192,18 @@ fun HomeScreen(navController: NavController, onTitleChange: (String) -> Unit) {
                     modifier = Modifier.weight(1f)
                 ) {
                     IconButton(onClick = {
-                        onTitleChange("Herramientas")
+                        onTitleChange("Tecnologias")
                         navController.navigate(AppScreen.TechnologiesScreen.route)
                     }) {
                         Icon(
                             painter = painterResource(id = R.drawable.icon_build),
-                            contentDescription = "Ir a pantalla 3",
+                            contentDescription = "Go to Technologies",
                             modifier = Modifier.size(60.dp),
                             tint = Color.Unspecified
                         )
                     }
                     Text(
-                        text = "Herramientas",
+                        text = "Tecnologias",
                         fontSize = 14.sp,
                         modifier = Modifier.padding(top = 5.dp)
                     )
