@@ -1,5 +1,8 @@
 package com.example.myprofilecompose.ui.contact.presenter
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -18,6 +21,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -27,6 +31,7 @@ import com.example.myprofilecompose.R
 @Preview(showBackground = true)
 @Composable
 fun ContactScreen() {
+    val context = LocalContext.current
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -119,7 +124,7 @@ fun ContactScreen() {
         contentAlignment = Alignment.BottomCenter
     ) {
         Button(
-            onClick = {  },
+            onClick = { sendEmail(context) },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 20.dp, vertical = 20.dp)
@@ -129,6 +134,20 @@ fun ContactScreen() {
                 text = stringResource(R.string.enviar_email)
             )
         }
+    }
+}
+fun sendEmail(context: Context) {
+    val emailIntent = Intent(Intent.ACTION_SENDTO).apply {
+        data = Uri.parse("mailto:jeannette.smm87@gmail.com") // Combina `mailto:` con el correo
+        putExtra(Intent.EXTRA_SUBJECT, "Consulta desde mi aplicación")
+        putExtra(Intent.EXTRA_TEXT, "Hola Ricardo, quisiera contactarme contigo.")
+    }
+
+    try {
+        context.startActivity(Intent.createChooser(emailIntent, "Elige un cliente de correo"))
+    } catch (e: Exception) {
+        // Manejo en caso de que no haya una aplicación compatible
+        e.printStackTrace()
     }
 }
 
