@@ -13,6 +13,7 @@ val Pink40 = Color(0xFF7D5260)
 
 
 //special
+
 val gradientBrush = Brush.verticalGradient(
     colors = listOf(
         Color(0x80001CD5),
@@ -27,4 +28,15 @@ val gradientButtonMetallic = Brush.verticalGradient(
         Color(0xFF000000),
         Color(0xFFECEFF1)
     )
+
 )
+val gmailGradientButton = Brush.verticalGradient(
+    colors = listOf(
+        Color(0xFFEA4335), // Rojo
+        Color(0xFFFBBC05), // Amarillo
+        Color(0xFF34A853), // Verde
+        Color(0xFF4285F4)  // Azul
+    )
+
+)
+
