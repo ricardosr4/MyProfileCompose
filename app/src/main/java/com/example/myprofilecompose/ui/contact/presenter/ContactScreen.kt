@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -15,6 +16,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -28,6 +30,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myprofilecompose.R
+import com.example.myprofilecompose.ui.theme.ButtonBlue
+import com.example.myprofilecompose.ui.theme.Purple40
+
 @Preview(showBackground = true)
 @Composable
 fun ContactScreen() {
@@ -128,8 +133,11 @@ fun ContactScreen() {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 20.dp, vertical = 20.dp)
-                .height(45.dp),
-        ) {
+                .height(50.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = ButtonBlue,
+                contentColor = Color.White)
+            ) {
             Text(
                 text = stringResource(R.string.enviar_email)
             )
