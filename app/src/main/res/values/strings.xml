@@ -9,4 +9,5 @@ Soy un desarrollador apasionado con experiencia en el desarrollo de aplicaciones
     <string name="descargar_cv">Descargar Cv</string>
     <string name="imagen_cv">imagen cv</string>
     <string name="enviar_email">Enviar email</string>
+    <string name="cv_saved_success">CV guardado en Descargas</string>
 </resources>
