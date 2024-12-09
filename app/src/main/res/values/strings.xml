@@ -6,8 +6,27 @@
     <!-- long text -->
     <string name="profile_description">¡Bienvenido a mi perfil! 👋
 Soy un desarrollador apasionado con experiencia en el desarrollo de aplicaciones móviles utilizando Kotlin. Aquí podrás explorar mis proyectos, habilidades y logros. Mi objetivo es seguir creciendo en esta industria y compartir conocimientos con la comunidad. ¡Gracias por visitar mi espacio!</string>
-    <string name="descargar_cv">Descargar Cv</string>
-    <string name="imagen_cv">imagen cv</string>
+
     <string name="enviar_email">Enviar email</string>
     <string name="cv_saved_success">CV guardado en Descargas</string>
+
+    <!-- contact screen -->
+    <string name="contact_me">Como contactarme:</string>
+    <string name="whatsapp_number">+569 5646 8732:</string>
+    <string name="my_gmail">ricardosr4@gmail.com:</string>
+    <string name="my_linkedin">linkedin.com/in/ricardosotoramirez:</string>
+    <string name="my_instagram">"@ramirezricardosoto":</string>
+    <string name="email">ricardosr4@gmail.com:</string>
+    <string name="linkedin">Linkedin:</string>
+    <string name="instagram">Instagram:</string>
+    <!-- home screen -->
+
+    <!-- projects screen -->
+
+    <!-- skills screen -->
+
+    <!-- about me screen -->
+    <string name="download_cv">Descargar Cv</string>
+    <string name="imagen_cv">imagen cv</string>
+
 </resources>
