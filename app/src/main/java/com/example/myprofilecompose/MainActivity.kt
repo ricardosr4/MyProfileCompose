@@ -10,13 +10,13 @@ import androidx.compose.material.icons.filled.Build
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -58,31 +58,31 @@ class MainActivity : ComponentActivity() {
                             items = listOf(
                                 MenuItem(
                                     id = "Home",
-                                    title = "Home",
+                                    title = stringResource(R.string.home),
                                     contentDescription = "Go to home screen",
                                     icon = Icons.Default.Home
                                 ),
                                 MenuItem(
                                     id = "About Me",
-                                    title = "Sobre Mi",
+                                    title = stringResource(R.string.about_me),
                                     contentDescription = "Go to About Me",
                                     icon = Icons.Default.Person
                                 ),
                                 MenuItem(
                                     id = "Projects",
-                                    title = "Proyectos",
+                                    title = stringResource(R.string.projects),
                                     contentDescription = "Go to Projects",
                                     icon = Icons.Default.Star
                                 ),
                                 MenuItem(
                                     id = "Technologies",
-                                    title = "Tecnologías",
+                                    title = stringResource(R.string.technologies),
                                     contentDescription = "Go to Technologies",
                                     icon = Icons.Default.Build
                                 ),
                                 MenuItem(
                                     id = "Contact",
-                                    title = "Contacto",
+                                    title = stringResource(R.string.contact),
                                     contentDescription = "Go to Contact",
                                     icon = Icons.Default.Email
                                 ),
@@ -92,27 +92,27 @@ class MainActivity : ComponentActivity() {
                                     scaffoldState.drawerState.close()
                                     when (it.id) {
                                         "Home" -> {
-                                            title.value = "Home"
+                                            title.value = getString(R.string.home)
                                             navigationController.navigate(AppScreen.HomeScreen.route)
                                         }
 
                                         "About Me" -> {
-                                            title.value = "Sobre mi"
+                                            title.value = getString(R.string.about_me)
                                             navigationController.navigate(AppScreen.AboutMeScreen.route)
                                         }
 
                                         "Projects" -> {
-                                            title.value = "Proyectos"
+                                            title.value = getString(R.string.projects)
                                             navigationController.navigate(AppScreen.ProjectScreen.route)
                                         }
 
                                         "Technologies" -> {
-                                            title.value = "Tecnologias"
+                                            title.value = getString(R.string.technologies)
                                             navigationController.navigate(AppScreen.TechnologiesScreen.route)
                                         }
 
                                         "Contact" -> {
-                                            title.value = "Contacto"
+                                            title.value = getString(R.string.contact)
                                             navigationController.navigate(AppScreen.ContactScreen.route)
                                         }
                                     }
@@ -131,37 +131,32 @@ class MainActivity : ComponentActivity() {
                                 navController = navigationController
                             )
                             LaunchedEffect(Unit) {
-                                title.value =
-                                    "Home"
+                                title.value = getString(R.string.home)
                             }
                         }
                         composable(AppScreen.AboutMeScreen.route) {
                             AboutMeScreen()
                             LaunchedEffect(Unit) {
-                                title.value =
-                                    "Sobre mi"
+                                title.value = getString(R.string.about_me)
                             }
                         }
                         composable(AppScreen.ProjectScreen.route) {
                             ProjectScreen()
                             LaunchedEffect(Unit) {
-                                title.value =
-                                    "Proyectos"
+                                title.value = getString(R.string.projects)
                             }
                         }
 
                         composable(AppScreen.TechnologiesScreen.route) {
                             TechnologiesScreen()
                             LaunchedEffect(Unit) {
-                                title.value =
-                                    "Tecnologías"
+                                title.value = getString(R.string.technologies)
                             }
                         }
                         composable(AppScreen.ContactScreen.route) {
                             ContactScreen()
                             LaunchedEffect(Unit) {
-                                title.value =
-                                    "Contacto"
+                                title.value = getString(R.string.contact)
                             }
 
                         }

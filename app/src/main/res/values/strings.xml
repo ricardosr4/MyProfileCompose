@@ -1,8 +1,5 @@
 <resources>
     <string name="app_name">My Profile Compose</string>
-
-
-
     <!-- long text -->
     <string name="profile_description">¡Bienvenido a mi perfil! 👋
 Soy un desarrollador apasionado con experiencia en el desarrollo de aplicaciones móviles utilizando Kotlin. Aquí podrás explorar mis proyectos, habilidades y logros. Mi objetivo es seguir creciendo en esta industria y compartir conocimientos con la comunidad. ¡Gracias por visitar mi espacio!</string>
@@ -25,8 +22,23 @@ Soy un desarrollador apasionado con experiencia en el desarrollo de aplicaciones
 
     <!-- skills screen -->
 
+
     <!-- about me screen -->
     <string name="download_cv">Descargar Cv</string>
     <string name="imagen_cv">imagen cv</string>
+
+    <!-- Activity-->
+    <string name="home">Home</string>
+    <string name="about_me">Sobre Mi</string>
+    <string name="projects">Proyectos</string>
+    <string name="technologies">Tecnologías</string>
+    <string name="contact">Contacto</string>
+    <string name="email_message_contact_me">Hola Ricardo, quisiera contactarme contigo.</string>
+    <string name="email_consult_my_app">Consulta desde mi aplicación</string>
+    <string name="email_chosser_title">Elige un cliente de correo</string>
+    <string name="android_develop">Desarrollador Android</string>
+    <string name="ricardo_soto">Ricardo Soto</string>
+    <string name="projects_xml">Proyectos en xml</string>
+    <string name="projects_compose">Proyectos en Compose</string>
 
 </resources>

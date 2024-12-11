@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myprofilecompose.R
@@ -31,29 +32,27 @@ fun DrawerHeader() {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
-                .padding(start = 20.dp, end = 16.dp) // Padding de 20 dp al inicio y 16 dp al final
+                .padding(start = 20.dp, end = 16.dp)
         ) {
-            // Imagen de perfil
+
             Image(
-                painter = painterResource(id = R.drawable.img_perfil), // Usa tu imagen aquí
-                contentDescription = "Imagen de perfil",
+                painter = painterResource(id = R.drawable.img_perfil),
+                contentDescription = null,
                 modifier = Modifier
-                    .size(60.dp) // Tamaño de la imagen más pequeña
-                    .clip(CircleShape) // Para hacer la imagen circular
-                    .border(2.dp, Color.Black, CircleShape) // Borde alrededor de la imagen
+                    .size(60.dp)
+                    .clip(CircleShape)
+                    .border(2.dp, Color.Black, CircleShape)
             )
+            Spacer(modifier = Modifier.width(16.dp))
 
-            Spacer(modifier = Modifier.width(16.dp)) // Espacio entre la imagen y los textos
-
-            // Columna con los textos
             Column {
                 Text(
-                    text = "Desarrollador Android",
+                    text = stringResource(R.string.android_develop),
                     fontSize = 18.sp,
                     color = Color.Black
                 )
                 Text(
-                    text = "Ricardo Soto",
+                    text = stringResource(R.string.ricardo_soto),
                     fontSize = 16.sp,
                     color = Color.Gray
                 )

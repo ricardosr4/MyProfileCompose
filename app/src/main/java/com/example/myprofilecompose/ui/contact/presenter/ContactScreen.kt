@@ -19,7 +19,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myprofilecompose.R
-import com.example.myprofilecompose.ui.theme.ButtonBlue
 import com.example.myprofilecompose.ui.theme.Purple40
 
 @Composable
@@ -108,11 +107,12 @@ fun ContactRow(iconId: Int, text: String) {
 fun sendEmail(context: Context) {
     val emailIntent = Intent(Intent.ACTION_SENDTO).apply {
         data = Uri.parse("mailto:jeannette.smm87@gmail.com")
-        putExtra(Intent.EXTRA_SUBJECT, "Consulta desde mi aplicación")
-        putExtra(Intent.EXTRA_TEXT, "Hola Ricardo, quisiera contactarme contigo.")
+        putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.email_consult_my_app))
+        putExtra(Intent.EXTRA_TEXT, context.getString(R.string.email_message_contact_me))
     }
     try {
-        context.startActivity(Intent.createChooser(emailIntent, "Elige un cliente de correo"))
+        context.startActivity(Intent.createChooser(emailIntent,
+            context.getString(R.string.email_chosser_title)))
     } catch (e: Exception) {
         e.printStackTrace()
     }

@@ -139,7 +139,7 @@ fun HomeScreen(navController: NavController, onTitleChange: (String) -> Unit) {
                     modifier = Modifier.weight(1f)
                 ) {
                     IconButton(onClick = {
-                        onTitleChange("Sobre mí")
+                        onTitleChange(context.getString(R.string.about_me))
                         navController.navigate(AppScreen.AboutMeScreen.route)
                     }) {
                         Icon(
@@ -150,7 +150,7 @@ fun HomeScreen(navController: NavController, onTitleChange: (String) -> Unit) {
                         )
                     }
                     Text(
-                        text = "Sobre mí",
+                        text = stringResource(R.string.about_me),
                         fontSize = 14.sp,
                         modifier = Modifier.padding(top = 5.dp)
                     )
@@ -161,7 +161,7 @@ fun HomeScreen(navController: NavController, onTitleChange: (String) -> Unit) {
                     modifier = Modifier.weight(1f)
                 ) {
                     IconButton(onClick = {
-                        onTitleChange("Proyectos")
+                        onTitleChange(context.getString(R.string.projects))
                         navController.navigate(AppScreen.ProjectScreen.route)
                     }) {
                         Icon(
@@ -172,7 +172,7 @@ fun HomeScreen(navController: NavController, onTitleChange: (String) -> Unit) {
                         )
                     }
                     Text(
-                        text = "Proyectos",
+                        text = stringResource(R.string.projects),
                         fontSize = 14.sp,
                         modifier = Modifier.padding(top = 5.dp)
                     )
@@ -183,7 +183,7 @@ fun HomeScreen(navController: NavController, onTitleChange: (String) -> Unit) {
                     modifier = Modifier.weight(1f)
                 ) {
                     IconButton(onClick = {
-                        onTitleChange("Tecnologias")
+                        onTitleChange(context.getString(R.string.technologies))
                         navController.navigate(AppScreen.TechnologiesScreen.route)
                     }) {
                         Icon(
@@ -194,7 +194,7 @@ fun HomeScreen(navController: NavController, onTitleChange: (String) -> Unit) {
                         )
                     }
                     Text(
-                        text = "Tecnologias",
+                        text = stringResource(R.string.technologies),
                         fontSize = 14.sp,
                         modifier = Modifier.padding(top = 5.dp)
                     )
