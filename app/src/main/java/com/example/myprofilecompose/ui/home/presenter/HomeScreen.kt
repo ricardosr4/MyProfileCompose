@@ -200,6 +200,35 @@ fun HomeScreen(navController: NavController, onTitleChange: (String) -> Unit) {
                     )
                 }
             }
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 20.dp),
+                horizontalArrangement = Arrangement.SpaceEvenly,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier.weight(1f)
+                ) {
+                    IconButton(onClick = {
+                        onTitleChange(context.getString(R.string.contact))
+                        navController.navigate(AppScreen.ContactScreen.route)
+                    }) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.icon_contact),
+                            contentDescription = "Go to contact Screen",
+                            modifier = Modifier.size(60.dp),
+                            tint = Color.Unspecified
+                        )
+                    }
+                    Text(
+                        text = stringResource(R.string.contact),
+                        fontSize = 14.sp,
+                        modifier = Modifier.padding(top = 5.dp)
+                    )
+                }
+            }
         }
     }
 }

@@ -1,15 +1,15 @@
 package com.example.myprofilecompose.ui.contact.presenter
 
-import android.content.Context
-import android.content.Intent
-import android.net.Uri
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -18,12 +18,29 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.myprofilecompose.R
+import com.example.myprofilecompose.ui.contact.state.ContactState
+import com.example.myprofilecompose.ui.contact.viewModel.ContactViewModel
 import com.example.myprofilecompose.ui.theme.Purple40
 
 @Composable
-fun ContactScreen() {
+fun ContactScreen(viewModel: ContactViewModel = viewModel()) {
+
     val context = LocalContext.current
+    val contactState by viewModel.contactState.collectAsState()
+
+    LaunchedEffect(contactState) {
+        when (contactState) {
+            is ContactState.Success -> { Toast.makeText(context, context.getString(R.string.enviar_email), Toast.LENGTH_SHORT).show()
+                viewModel.resetState()
+            }
+            is ContactState.Error -> { Toast.makeText(context,(contactState as ContactState.Error).message, Toast.LENGTH_SHORT).show()
+                viewModel.resetState()
+            }
+            else -> Unit
+        }
+    }
 
     Column(
         modifier = Modifier
@@ -42,7 +59,8 @@ fun ContactScreen() {
 
         Text(
             text = stringResource(id = R.string.contact_me),
-            fontSize = 26.sp)
+            fontSize = 26.sp
+        )
 
         Spacer(modifier = Modifier.height(30.dp))
 
@@ -69,7 +87,7 @@ fun ContactScreen() {
         contentAlignment = Alignment.BottomCenter
     ) {
         Button(
-            onClick = { sendEmail(context) },
+            onClick = { viewModel.sendEmail(context) },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(20.dp)
@@ -84,36 +102,4 @@ fun ContactScreen() {
     }
 }
 
-@Composable
-fun ContactRow(iconId: Int, text: String) {
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.Center,
-        modifier = Modifier
-            .padding(vertical = 14.dp)
-            .fillMaxWidth()
-    ) {
-        Icon(
-            painter = painterResource(id = iconId),
-            contentDescription = null,
-            modifier = Modifier.size(24.dp),
-            tint = Color.Unspecified
-        )
-        Spacer(modifier = Modifier.width(20.dp))
-        Text(text = text)
-    }
-}
 
-fun sendEmail(context: Context) {
-    val emailIntent = Intent(Intent.ACTION_SENDTO).apply {
-        data = Uri.parse("mailto:jeannette.smm87@gmail.com")
-        putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.email_consult_my_app))
-        putExtra(Intent.EXTRA_TEXT, context.getString(R.string.email_message_contact_me))
-    }
-    try {
-        context.startActivity(Intent.createChooser(emailIntent,
-            context.getString(R.string.email_chosser_title)))
-    } catch (e: Exception) {
-        e.printStackTrace()
-    }
-}

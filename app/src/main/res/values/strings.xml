@@ -16,6 +16,7 @@ Soy un desarrollador apasionado con experiencia en el desarrollo de aplicaciones
     <string name="email">ricardosr4@gmail.com:</string>
     <string name="linkedin">Linkedin:</string>
     <string name="instagram">Instagram:</string>
+    <string name="send_email_success">Email enviado con éxito</string>
     <!-- home screen -->
 
     <!-- projects screen -->
