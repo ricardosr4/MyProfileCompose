@@ -12,25 +12,17 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.rememberScaffoldState
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.res.stringResource
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.myprofilecompose.data.model.MenuItem
 import com.example.myprofilecompose.navigation.AppScreen
 import com.example.myprofilecompose.navigation.NavGraph
-import com.example.myprofilecompose.ui.aboutme.presenter.AboutMeScreen
-import com.example.myprofilecompose.ui.contact.presenter.ContactScreen
-import com.example.myprofilecompose.ui.home.presenter.HomeScreen
 import com.example.myprofilecompose.ui.navigationdrawer.presenter.DrawerBody
 import com.example.myprofilecompose.ui.navigationdrawer.presenter.DrawerHeader
 import com.example.myprofilecompose.ui.navigationdrawer.presenter.TopAppBar
-import com.example.myprofilecompose.ui.projects.presenter.ProjectScreen
-import com.example.myprofilecompose.ui.technologies.presenter.TechnologiesScreen
 import com.example.myprofilecompose.ui.theme.MyProfileComposeTheme
 import kotlinx.coroutines.launch
 
