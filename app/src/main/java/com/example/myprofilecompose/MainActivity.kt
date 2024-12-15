@@ -22,6 +22,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.myprofilecompose.data.model.MenuItem
 import com.example.myprofilecompose.navigation.AppScreen
+import com.example.myprofilecompose.navigation.NavGraph
 import com.example.myprofilecompose.ui.aboutme.presenter.AboutMeScreen
 import com.example.myprofilecompose.ui.contact.presenter.ContactScreen
 import com.example.myprofilecompose.ui.home.presenter.HomeScreen
@@ -91,76 +92,22 @@ class MainActivity : ComponentActivity() {
                                 scope.launch {
                                     scaffoldState.drawerState.close()
                                     when (it.id) {
-                                        "Home" -> {
-                                            title.value = getString(R.string.home)
-                                            navigationController.navigate(AppScreen.HomeScreen.route)
-                                        }
-
-                                        "About Me" -> {
-                                            title.value = getString(R.string.about_me)
-                                            navigationController.navigate(AppScreen.AboutMeScreen.route)
-                                        }
-
-                                        "Projects" -> {
-                                            title.value = getString(R.string.projects)
-                                            navigationController.navigate(AppScreen.ProjectScreen.route)
-                                        }
-
-                                        "Technologies" -> {
-                                            title.value = getString(R.string.technologies)
-                                            navigationController.navigate(AppScreen.TechnologiesScreen.route)
-                                        }
-
-                                        "Contact" -> {
-                                            title.value = getString(R.string.contact)
-                                            navigationController.navigate(AppScreen.ContactScreen.route)
-                                        }
+                                        "Home" -> { navigationController.navigate(AppScreen.HomeScreen.route) }
+                                        "About Me" -> { navigationController.navigate(AppScreen.AboutMeScreen.route) }
+                                        "Projects" -> { navigationController.navigate(AppScreen.ProjectScreen.route) }
+                                        "Technologies" -> { navigationController.navigate(AppScreen.TechnologiesScreen.route) }
+                                        "Contact" -> { navigationController.navigate(AppScreen.ContactScreen.route) }
                                     }
                                 }
                             }
                         )
                     }
                 ) {
-                    NavHost(
+                    NavGraph(
                         navController = navigationController,
-                        startDestination = AppScreen.HomeScreen.route
-                    ) {
-                        composable(AppScreen.HomeScreen.route) {
-                            HomeScreen(
-                                onTitleChange = { title.value = it },
-                                navController = navigationController
-                            )
-                            LaunchedEffect(Unit) {
-                                title.value = getString(R.string.home)
-                            }
-                        }
-                        composable(AppScreen.AboutMeScreen.route) {
-                            AboutMeScreen()
-                            LaunchedEffect(Unit) {
-                                title.value = getString(R.string.about_me)
-                            }
-                        }
-                        composable(AppScreen.ProjectScreen.route) {
-                            ProjectScreen()
-                            LaunchedEffect(Unit) {
-                                title.value = getString(R.string.projects)
-                            }
-                        }
-
-                        composable(AppScreen.TechnologiesScreen.route) {
-                            TechnologiesScreen()
-                            LaunchedEffect(Unit) {
-                                title.value = getString(R.string.technologies)
-                            }
-                        }
-                        composable(AppScreen.ContactScreen.route) {
-                            ContactScreen()
-                            LaunchedEffect(Unit) {
-                                title.value = getString(R.string.contact)
-                            }
-
-                        }
-                    }
+                        onTitleChange = { title.value = it },
+                        context = this
+                    )
                 }
             }
         }

@@ -41,5 +41,7 @@ Soy un desarrollador apasionado con experiencia en el desarrollo de aplicaciones
     <string name="ricardo_soto">Ricardo Soto</string>
     <string name="projects_xml">Proyectos en xml</string>
     <string name="projects_compose">Proyectos en Compose</string>
+    <string name="error_al_guardar_el_cv">Error al guardar el CV: %1$s</string>
+    <string name="error_desconocido">Error desconocido</string>
 
 </resources>

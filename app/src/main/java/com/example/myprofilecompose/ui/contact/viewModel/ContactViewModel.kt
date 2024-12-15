@@ -30,7 +30,7 @@ class ContactViewModel : ViewModel() {
                 )
                 _contactState.value = ContactState.Success
             } catch (e: Exception) {
-                _contactState.value = ContactState.Error(e.localizedMessage ?: "Error desconocido")
+                _contactState.value = ContactState.Error(e.localizedMessage ?: context.getString(R.string.error_desconocido))
             }
         }
     }

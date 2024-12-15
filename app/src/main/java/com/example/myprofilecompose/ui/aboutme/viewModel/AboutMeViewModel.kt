@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Environment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.myprofilecompose.R
 import com.example.myprofilecompose.ui.aboutme.state.AboutMeState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -35,11 +36,15 @@ class AboutMeViewModel : ViewModel() {
                 _saveState.value = AboutMeState.PdfSaveState.Success
             } catch (e: Exception) {
                 _saveState.value =
-                    AboutMeState.PdfSaveState.Error("Error al guardar el CV: ${e.localizedMessage}")
+                    AboutMeState.PdfSaveState.Error(
+                        context.getString(
+                            R.string.error_al_guardar_el_cv,
+                            e.localizedMessage
+                        )
+                    )
             }
         }
     }
-
     fun resetState() {
         _saveState.value = null
     }
