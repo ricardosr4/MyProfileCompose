@@ -124,11 +124,11 @@ fun getProjectXml(): List<GalleryModel> {
     return listOf(
         GalleryModel("Search Friends XML", R.drawable.img_home_dogs),
         GalleryModel(" XML", R.drawable.home_searchfriend_xml),
-        GalleryModel(" XML", R.drawable.img_home_dogs),
-        GalleryModel(" XML", R.drawable.img_home_dogs),
-        GalleryModel(" XML", R.drawable.img_home_dogs),
-        GalleryModel(" XML", R.drawable.img_home_dogs),
-        GalleryModel(" XML", R.drawable.img_home_dogs)
+        GalleryModel(" XML", R.drawable.img_api_sh_xml),
+        GalleryModel(" XML", R.drawable.img_calculadora_xml),
+        GalleryModel(" XML", R.drawable.img_login_first),
+        GalleryModel(" XML", R.drawable.img_recycler_sh_xml),
+
     )
 }
 
@@ -136,10 +136,9 @@ fun getProjectCompose(): List<GalleryModel> {
     return listOf(
         GalleryModel(" Compose", R.drawable.profile_compose),
         GalleryModel(" Compose", R.drawable.recover_password_compose),
-        GalleryModel("Compose", R.drawable.img_home_dogs),
-        GalleryModel(" Compose", R.drawable.img_home_dogs),
-        GalleryModel(" Compose", R.drawable.img_home_dogs),
-        GalleryModel("Compose", R.drawable.img_home_dogs),
-        GalleryModel(" Compose", R.drawable.img_home_dogs)
+        GalleryModel("Compose", R.drawable.img_contact_compose),
+        GalleryModel(" Compose", R.drawable.img_drawer_compose),
+        GalleryModel(" Compose", R.drawable.img_recycler_compose),
+
     )
 }
