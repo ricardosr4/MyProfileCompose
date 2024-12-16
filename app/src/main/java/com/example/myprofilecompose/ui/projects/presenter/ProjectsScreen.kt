@@ -21,6 +21,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -44,7 +45,7 @@ fun ProjectScreen() {
 @Composable
 fun TitleProjectXml() {
     Text(
-        text = "Proyectos en xml",
+        text = stringResource(R.string.projects_xml),
         modifier = Modifier
             .padding(top = 10.dp, start = 50.dp),
         fontSize = 36.sp,
@@ -69,7 +70,7 @@ fun ProjectXml(context: android.content.Context) {
 @Composable
 fun TitleProjectCompose() {
     Text(
-        text = "Proyectos en Compose",
+        text = stringResource(R.string.projects_compose),
         modifier = Modifier
             .padding(top = 10.dp, start = 50.dp),
         fontSize = 36.sp,
@@ -121,13 +122,15 @@ fun ItemProject(galleryModel: GalleryModel, onItemSelected: (GalleryModel) -> Un
 
 fun getProjectXml(): List<GalleryModel> {
     return listOf(
-        GalleryModel("Search Friends XML", R.drawable.img_home_dogs),
-        GalleryModel(" XML", R.drawable.home_searchfriend_xml),
-        GalleryModel(" XML", R.drawable.img_home_dogs),
-        GalleryModel(" XML", R.drawable.img_home_dogs),
-        GalleryModel(" XML", R.drawable.img_home_dogs),
-        GalleryModel(" XML", R.drawable.img_home_dogs),
-        GalleryModel(" XML", R.drawable.img_home_dogs)
+        GalleryModel(" Search Friends ", R.drawable.img_home_dogs),
+        GalleryModel(" Search Friends", R.drawable.home_searchfriend_xml),
+        GalleryModel(" Api Super Hero", R.drawable.img_api_sh_xml),
+        GalleryModel(" Calculator", R.drawable.img_calculadora_xml),
+        GalleryModel(" Login", R.drawable.img_login_first),
+        GalleryModel(" Api Super Hero", R.drawable.img_recycler_sh_xml),
+        GalleryModel(" Imc Calculator", R.drawable.img_imc_xml),
+        GalleryModel(" Imc Calculator", R.drawable.img_imc_result),
+
     )
 }
 
@@ -135,10 +138,10 @@ fun getProjectCompose(): List<GalleryModel> {
     return listOf(
         GalleryModel(" Compose", R.drawable.profile_compose),
         GalleryModel(" Compose", R.drawable.recover_password_compose),
-        GalleryModel("Compose", R.drawable.img_home_dogs),
-        GalleryModel(" Compose", R.drawable.img_home_dogs),
-        GalleryModel(" Compose", R.drawable.img_home_dogs),
-        GalleryModel("Compose", R.drawable.img_home_dogs),
-        GalleryModel(" Compose", R.drawable.img_home_dogs)
+        GalleryModel("Compose", R.drawable.img_contact_compose),
+        GalleryModel(" Compose", R.drawable.img_drawer_compose),
+        GalleryModel(" Compose", R.drawable.img_recycler_compose),
+        GalleryModel(" Compose", R.drawable.img_api_dbz_compose),
+
     )
 }

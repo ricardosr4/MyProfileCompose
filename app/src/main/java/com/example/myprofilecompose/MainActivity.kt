@@ -10,26 +10,19 @@ import androidx.compose.material.icons.filled.Build
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.rememberScaffoldState
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.compose.rememberNavController
 import com.example.myprofilecompose.data.model.MenuItem
 import com.example.myprofilecompose.navigation.AppScreen
-import com.example.myprofilecompose.ui.aboutme.presenter.AboutMeScreen
-import com.example.myprofilecompose.ui.contact.presenter.ContactScreen
-import com.example.myprofilecompose.ui.home.presenter.HomeScreen
+import com.example.myprofilecompose.navigation.NavGraph
 import com.example.myprofilecompose.ui.navigationdrawer.presenter.DrawerBody
 import com.example.myprofilecompose.ui.navigationdrawer.presenter.DrawerHeader
 import com.example.myprofilecompose.ui.navigationdrawer.presenter.TopAppBar
-import com.example.myprofilecompose.ui.projects.presenter.ProjectScreen
-import com.example.myprofilecompose.ui.technologies.presenter.TechnologiesScreen
 import com.example.myprofilecompose.ui.theme.MyProfileComposeTheme
 import kotlinx.coroutines.launch
 
@@ -58,31 +51,31 @@ class MainActivity : ComponentActivity() {
                             items = listOf(
                                 MenuItem(
                                     id = "Home",
-                                    title = "Home",
+                                    title = stringResource(R.string.home),
                                     contentDescription = "Go to home screen",
                                     icon = Icons.Default.Home
                                 ),
                                 MenuItem(
                                     id = "About Me",
-                                    title = "Sobre Mi",
+                                    title = stringResource(R.string.about_me),
                                     contentDescription = "Go to About Me",
                                     icon = Icons.Default.Person
                                 ),
                                 MenuItem(
                                     id = "Projects",
-                                    title = "Proyectos",
+                                    title = stringResource(R.string.projects),
                                     contentDescription = "Go to Projects",
                                     icon = Icons.Default.Star
                                 ),
                                 MenuItem(
                                     id = "Technologies",
-                                    title = "Tecnologías",
+                                    title = stringResource(R.string.technologies),
                                     contentDescription = "Go to Technologies",
                                     icon = Icons.Default.Build
                                 ),
                                 MenuItem(
                                     id = "Contact",
-                                    title = "Contacto",
+                                    title = stringResource(R.string.contact),
                                     contentDescription = "Go to Contact",
                                     icon = Icons.Default.Email
                                 ),
@@ -91,81 +84,22 @@ class MainActivity : ComponentActivity() {
                                 scope.launch {
                                     scaffoldState.drawerState.close()
                                     when (it.id) {
-                                        "Home" -> {
-                                            title.value = "Home"
-                                            navigationController.navigate(AppScreen.HomeScreen.route)
-                                        }
-
-                                        "About Me" -> {
-                                            title.value = "Sobre mi"
-                                            navigationController.navigate(AppScreen.AboutMeScreen.route)
-                                        }
-
-                                        "Projects" -> {
-                                            title.value = "Proyectos"
-                                            navigationController.navigate(AppScreen.ProjectScreen.route)
-                                        }
-
-                                        "Technologies" -> {
-                                            title.value = "Tecnologias"
-                                            navigationController.navigate(AppScreen.TechnologiesScreen.route)
-                                        }
-
-                                        "Contact" -> {
-                                            title.value = "Contacto"
-                                            navigationController.navigate(AppScreen.ContactScreen.route)
-                                        }
+                                        "Home" -> { navigationController.navigate(AppScreen.HomeScreen.route) }
+                                        "About Me" -> { navigationController.navigate(AppScreen.AboutMeScreen.route) }
+                                        "Projects" -> { navigationController.navigate(AppScreen.ProjectScreen.route) }
+                                        "Technologies" -> { navigationController.navigate(AppScreen.TechnologiesScreen.route) }
+                                        "Contact" -> { navigationController.navigate(AppScreen.ContactScreen.route) }
                                     }
                                 }
                             }
                         )
                     }
                 ) {
-                    NavHost(
+                    NavGraph(
                         navController = navigationController,
-                        startDestination = AppScreen.HomeScreen.route
-                    ) {
-                        composable(AppScreen.HomeScreen.route) {
-                            HomeScreen(
-                                onTitleChange = { title.value = it },
-                                navController = navigationController
-                            )
-                            LaunchedEffect(Unit) {
-                                title.value =
-                                    "Home"
-                            }
-                        }
-                        composable(AppScreen.AboutMeScreen.route) {
-                            AboutMeScreen()
-                            LaunchedEffect(Unit) {
-                                title.value =
-                                    "Sobre mi"
-                            }
-                        }
-                        composable(AppScreen.ProjectScreen.route) {
-                            ProjectScreen()
-                            LaunchedEffect(Unit) {
-                                title.value =
-                                    "Proyectos"
-                            }
-                        }
-
-                        composable(AppScreen.TechnologiesScreen.route) {
-                            TechnologiesScreen()
-                            LaunchedEffect(Unit) {
-                                title.value =
-                                    "Tecnologías"
-                            }
-                        }
-                        composable(AppScreen.ContactScreen.route) {
-                            ContactScreen()
-                            LaunchedEffect(Unit) {
-                                title.value =
-                                    "Contacto"
-                            }
-
-                        }
-                    }
+                        onTitleChange = { title.value = it },
+                        context = this
+                    )
                 }
             }
         }

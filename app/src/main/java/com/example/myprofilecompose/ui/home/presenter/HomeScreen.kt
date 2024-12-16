@@ -22,8 +22,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -45,7 +43,6 @@ import com.example.myprofilecompose.navigation.AppScreen
 fun HomeScreen(navController: NavController, onTitleChange: (String) -> Unit) {
     val context = LocalContext.current
 
-
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -60,7 +57,7 @@ fun HomeScreen(navController: NavController, onTitleChange: (String) -> Unit) {
 
             Image(
                 painter = painterResource(id = R.drawable.img_port_home),
-                contentDescription = "imagen portada",
+                contentDescription = null,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .fillMaxWidth()
@@ -79,13 +76,11 @@ fun HomeScreen(navController: NavController, onTitleChange: (String) -> Unit) {
                 horizontalArrangement = Arrangement.Center
             ) {
                 IconButton(onClick = {
-                    val intent =
-                        Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/ricardosr4"))
-                    context.startActivity(intent)
+                    openWebLink(context, "https://github.com/ricardosr4")
                 }) {
                     Icon(
                         painter = painterResource(id = R.drawable.icons_github),
-                        contentDescription = "Github",
+                        contentDescription = null,
                         modifier = Modifier
                             .width(50.dp)
                             .height(50.dp)
@@ -95,7 +90,7 @@ fun HomeScreen(navController: NavController, onTitleChange: (String) -> Unit) {
 
                 Image(
                     painter = painterResource(id = R.drawable.img_perfil),
-                    contentDescription = "image profile",
+                    contentDescription = null,
                     contentScale = ContentScale.Crop,
                     modifier = Modifier
                         .size(170.dp)
@@ -106,15 +101,11 @@ fun HomeScreen(navController: NavController, onTitleChange: (String) -> Unit) {
                 Spacer(modifier = Modifier.width(20.dp))
 
                 IconButton(onClick = {
-                    val intent = Intent(
-                        Intent.ACTION_VIEW,
-                        Uri.parse("https://www.linkedin.com/in/ricardosotoramirez/")
-                    )
-                    context.startActivity(intent)
+                    openWebLink(context, "https://www.linkedin.com/in/ricardosotoramirez/")
                 }) {
                     Icon(
                         painter = painterResource(id = R.drawable.icon_linkedin),
-                        contentDescription = "linkedin",
+                        contentDescription = stringResource(id = R.string.linkedin),
                         modifier = Modifier
                             .width(50.dp)
                             .height(50.dp),
@@ -148,7 +139,7 @@ fun HomeScreen(navController: NavController, onTitleChange: (String) -> Unit) {
                     modifier = Modifier.weight(1f)
                 ) {
                     IconButton(onClick = {
-                        onTitleChange("Sobre mí")
+                        onTitleChange(context.getString(R.string.about_me))
                         navController.navigate(AppScreen.AboutMeScreen.route)
                     }) {
                         Icon(
@@ -159,7 +150,7 @@ fun HomeScreen(navController: NavController, onTitleChange: (String) -> Unit) {
                         )
                     }
                     Text(
-                        text = "Sobre mí",
+                        text = stringResource(R.string.about_me),
                         fontSize = 14.sp,
                         modifier = Modifier.padding(top = 5.dp)
                     )
@@ -170,7 +161,7 @@ fun HomeScreen(navController: NavController, onTitleChange: (String) -> Unit) {
                     modifier = Modifier.weight(1f)
                 ) {
                     IconButton(onClick = {
-                        onTitleChange("Proyectos")
+                        onTitleChange(context.getString(R.string.projects))
                         navController.navigate(AppScreen.ProjectScreen.route)
                     }) {
                         Icon(
@@ -181,7 +172,7 @@ fun HomeScreen(navController: NavController, onTitleChange: (String) -> Unit) {
                         )
                     }
                     Text(
-                        text = "Proyectos",
+                        text = stringResource(R.string.projects),
                         fontSize = 14.sp,
                         modifier = Modifier.padding(top = 5.dp)
                     )
@@ -192,7 +183,7 @@ fun HomeScreen(navController: NavController, onTitleChange: (String) -> Unit) {
                     modifier = Modifier.weight(1f)
                 ) {
                     IconButton(onClick = {
-                        onTitleChange("Tecnologias")
+                        onTitleChange(context.getString(R.string.technologies))
                         navController.navigate(AppScreen.TechnologiesScreen.route)
                     }) {
                         Icon(
@@ -203,14 +194,48 @@ fun HomeScreen(navController: NavController, onTitleChange: (String) -> Unit) {
                         )
                     }
                     Text(
-                        text = "Tecnologias",
+                        text = stringResource(R.string.technologies),
                         fontSize = 14.sp,
                         modifier = Modifier.padding(top = 5.dp)
                     )
                 }
             }
-
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 20.dp),
+                horizontalArrangement = Arrangement.SpaceEvenly,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier.weight(1f)
+                ) {
+                    IconButton(onClick = {
+                        onTitleChange(context.getString(R.string.contact))
+                        navController.navigate(AppScreen.ContactScreen.route)
+                    }) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.icon_contact),
+                            contentDescription = "Go to contact Screen",
+                            modifier = Modifier.size(60.dp),
+                            tint = Color.Unspecified
+                        )
+                    }
+                    Text(
+                        text = stringResource(R.string.contact),
+                        fontSize = 14.sp,
+                        modifier = Modifier.padding(top = 5.dp)
+                    )
+                }
+            }
         }
     }
 }
+
+fun openWebLink(context: android.content.Context, url: String) {
+    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+    context.startActivity(intent)
+}
+
 
