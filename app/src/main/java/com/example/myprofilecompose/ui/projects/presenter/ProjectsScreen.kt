@@ -122,12 +122,14 @@ fun ItemProject(galleryModel: GalleryModel, onItemSelected: (GalleryModel) -> Un
 
 fun getProjectXml(): List<GalleryModel> {
     return listOf(
-        GalleryModel("Search Friends XML", R.drawable.img_home_dogs),
-        GalleryModel(" XML", R.drawable.home_searchfriend_xml),
-        GalleryModel(" XML", R.drawable.img_api_sh_xml),
-        GalleryModel(" XML", R.drawable.img_calculadora_xml),
-        GalleryModel(" XML", R.drawable.img_login_first),
-        GalleryModel(" XML", R.drawable.img_recycler_sh_xml),
+        GalleryModel(" Search Friends ", R.drawable.img_home_dogs),
+        GalleryModel(" Search Friends", R.drawable.home_searchfriend_xml),
+        GalleryModel(" Api Super Hero", R.drawable.img_api_sh_xml),
+        GalleryModel(" Calculator", R.drawable.img_calculadora_xml),
+        GalleryModel(" Login", R.drawable.img_login_first),
+        GalleryModel(" Api Super Hero", R.drawable.img_recycler_sh_xml),
+        GalleryModel(" Imc Calculator", R.drawable.img_imc_xml),
+        GalleryModel(" Imc Calculator", R.drawable.img_imc_result),
 
     )
 }
