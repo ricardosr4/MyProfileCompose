@@ -141,6 +141,7 @@ fun getProjectCompose(): List<GalleryModel> {
         GalleryModel("Compose", R.drawable.img_contact_compose),
         GalleryModel(" Compose", R.drawable.img_drawer_compose),
         GalleryModel(" Compose", R.drawable.img_recycler_compose),
+        GalleryModel(" Compose", R.drawable.img_api_dbz_compose),
 
     )
 }
