@@ -52,7 +52,7 @@ fun DrawerHeader() {
                     color = Color.Black
                 )
                 Text(
-                    text = stringResource(R.string.ricardo_soto),
+                    text = stringResource(R.string.ricardo_soto_ramirez),
                     fontSize = 16.sp,
                     color = Color.Gray
                 )
