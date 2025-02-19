@@ -12,7 +12,7 @@ Soy un desarrollador apasionado con experiencia en el desarrollo de aplicaciones
     <string name="whatsapp_number">+569 5646 8732:</string>
     <string name="my_gmail">ricardosr4@gmail.com:</string>
     <string name="my_linkedin">linkedin.com/in/ricardosotoramirez:</string>
-    <string name="my_instagram">"@ramirezricardosoto":</string>
+    <string name="my_instagram">"@rick_dev90":</string>
     <string name="email">ricardosr4@gmail.com:</string>
     <string name="linkedin">Linkedin:</string>
     <string name="instagram">Instagram:</string>
@@ -38,7 +38,7 @@ Soy un desarrollador apasionado con experiencia en el desarrollo de aplicaciones
     <string name="email_consult_my_app">Consulta desde mi aplicación</string>
     <string name="email_chosser_title">Elige un cliente de correo</string>
     <string name="android_develop">Desarrollador Android</string>
-    <string name="ricardo_soto">Ricardo Soto</string>
+    <string name="ricardo_soto_ramirez">Ricardo Soto Ramirez</string>
     <string name="projects_xml">Proyectos en xml</string>
     <string name="projects_compose">Proyectos en Compose</string>
     <string name="error_al_guardar_el_cv">Error al guardar el CV: %1$s</string>

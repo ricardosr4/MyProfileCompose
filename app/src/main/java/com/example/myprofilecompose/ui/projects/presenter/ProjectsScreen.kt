@@ -139,6 +139,7 @@ fun getProjectCompose(): List<GalleryModel> {
         GalleryModel(" Compose", R.drawable.profile_compose),
         GalleryModel(" Compose", R.drawable.recover_password_compose),
         GalleryModel("Compose", R.drawable.img_contact_compose),
+        GalleryModel("Compose", R.drawable.img_home_over_time_compose),
         GalleryModel(" Compose", R.drawable.img_drawer_compose),
         GalleryModel(" Compose", R.drawable.img_recycler_compose),
         GalleryModel(" Compose", R.drawable.img_api_dbz_compose),
